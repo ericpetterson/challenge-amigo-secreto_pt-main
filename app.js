@@ -33,3 +33,8 @@ function exibirLista() {
 function limparInput() {
     document.querySelector('input').value = '';
 }
+
+function limparLista() {
+    listaAmigos = [];
+    exibirLista();
+}
