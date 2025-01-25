@@ -1,6 +1,15 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 let listaAmigos = [];
 let nomesJaSorteados = [];
+let nomeUsado = [];
+
+
+// Adiciona o evento de teclado ao input
+document.getElementById('amigo').addEventListener('keydown', function (event) {
+    if (event.key == 'Enter') { 
+        adicionarAmigo(); 
+    }
+});
 
 function adicionarAmigo() {
     let amigoInserido = document.querySelector('#amigo').value.trim();
@@ -30,21 +39,7 @@ function exibirLista() {
     }
 }
 
-// Chama a função exibirLista ao carregar a página
 window.onload = exibirLista;
-
-
-//  function exibirLista() {
-//      let amigos = document.getElementById('listaAmigos');
-//      amigos.innerHTML = '';
-
-//      for (let i = 0; i < listaAmigos.length; i++) {
-//         amigos.innerHTML += '<li>' + listaAmigos[i] + '</li>';
-//      }
-//  }
-
-
-
 
 
 function nomeSorteador() {
@@ -56,19 +51,28 @@ function nomeSorteador() {
     } else if (!listaAmigos.includes(amigoSorteador)) {
         alert('Esse amigo ainda não foi adicionado, Por favor informe um amigo existente');
         return;
-    } else if (listaAmigos.length <= 1 && listaAmigos.includes(amigoSorteador)) {
-        alert('Não há mais amigos para sortear');
-        
-    } else {
-        sortearAmigo(amigoSorteador);
+    } else if (nomeUsado.length == listaAmigos.length) {
+        alert('Todos os amigos ja receberam o amigo secreto');
+        return;
+    } else if (nomeUsado.includes(amigoSorteador)) {
+        alert('Esse amigo ja recebeu o amigo secreto');
+        return;
     }
+
+    let listaParaSorteio = listaAmigos.filter(nome => nome != amigoSorteador && !nomesJaSorteados.includes(nome));
+
+    if (listaParaSorteio.length == 0) {
+        alert('Todos os amigos ja receberam o amigo secreto');
+        return;
+    }
+
+    sortearAmigo(amigoSorteador, listaParaSorteio);
+    nomeUsado.push(amigoSorteador);
 }
 
-function sortearAmigo(amigoSorteador) {
-    let listaParaSorteio = listaAmigos.filter(nome => nome != amigoSorteador);
-    let amigoSorteado = listaParaSorteio[Math.floor(Math.random() * listaParaSorteio.length)];
+function sortearAmigo(amigoSorteador, listaParaSorteio) {
     
-    listaAmigos = listaAmigos.filter(nome => nome != amigoSorteado);
+    let amigoSorteado = listaParaSorteio[Math.floor(Math.random() * listaParaSorteio.length)];    
     nomesJaSorteados.push(amigoSorteado);
 
     let resultado = document.getElementById('resultado');
@@ -87,4 +91,8 @@ function limparLista() {
 
 }
 
-
+ function proximoAmigo() {
+     document.querySelector('input').value = '';
+     document.getElementById('resultado').innerHTML = '';
+     exibirLista();
+ }
