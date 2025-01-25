@@ -10,7 +10,7 @@
     <title>Amigo Secreto</title>
 </head>
 
-<body>
+<body onload="exibirLista()">
     <main class="main-content">
         <header class="header-banner">
             <h1 class="main-title">Amigo Secreto</h1>
@@ -18,7 +18,7 @@
         </header>
         
         <section class="input-section">
-            <h2 class="section-title">Digite seu nome</h2>
+            <h2 class="section-title">Digite quem vai sortear</h2>
 
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
@@ -30,7 +30,8 @@
                     Sortear amigo
                 </button>
             </div>
-                                            
+            
+            
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
             <div class="button-container">
@@ -39,8 +40,14 @@
                     Proximo Amigo
                 </button>
             </div>
+            <div class="troca" >
+                <a class="troca-sorteador" href="index.html" >
+                    Voltar Para a Lista
+                </a>
+            </div>
         </section>
     </main>
+    
 
     <script src="app.js" defer></script>
 </body>

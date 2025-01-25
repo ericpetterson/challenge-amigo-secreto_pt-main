@@ -10,14 +10,18 @@ function adicionarAmigo() {
         return;
     }
     listaAmigos.push(amigoInserido);
+    localStorage.setItem('listaAmigos', JSON.stringify(listaAmigos));
 
     limparInput();
     exibirLista();
 }
 
-
+function irParaSorteador() {
+    window.location.href = 'sorteador.html'; 
+}
 
 function exibirLista() {
+    listaAmigos = JSON.parse(localStorage.getItem('listaAmigos')) || []; // Recupera do localStorage
     let amigos = document.getElementById('listaAmigos');
     amigos.innerHTML = '';
 
@@ -25,6 +29,23 @@ function exibirLista() {
         amigos.innerHTML += '<li>' + listaAmigos[i] + '</li>';
     }
 }
+
+// Chama a função exibirLista ao carregar a página
+window.onload = exibirLista;
+
+
+//  function exibirLista() {
+//      let amigos = document.getElementById('listaAmigos');
+//      amigos.innerHTML = '';
+
+//      for (let i = 0; i < listaAmigos.length; i++) {
+//         amigos.innerHTML += '<li>' + listaAmigos[i] + '</li>';
+//      }
+//  }
+
+
+
+
 
 function nomeSorteador() {
     let amigoSorteador = document.querySelector('#pessoa').value.trim();
@@ -61,5 +82,9 @@ function limparInput() {
 
 function limparLista() {
     listaAmigos = [];
+    localStorage.removeItem('listaAmigos');
     exibirLista();
+
 }
+
+
