@@ -127,6 +127,10 @@ button {
     border-radius: 0px;
 }
 
+.button-text:hover {
+    background-color: #a1a1a1;
+}
+
 .button-add:hover {
     background-color: #a1a1a1;
 }
