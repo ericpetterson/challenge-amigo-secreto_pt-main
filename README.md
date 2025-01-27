@@ -1,14 +1,16 @@
 <h1 align="center">Amigo Secreto</h1>
 
+<img src="./assets/capa.png">
 
-[PROJECT__BADGE]: https://img.shields.io/badge/📱Visit_this_project-000?style=for-the-badge&logo=project
-[PROJECT__URL]: https://github.com/Fernanda-Kipper/Readme-Templates
 
 
 <h3>Sobre:</h3>
 <p> Amigo Secreto é um projeto do desafio de frontend da turma 8 do ONE(Oracle Next Education) realizado pela Alura, desenvolvido para organizar de forma simples e divertida a tradicional brincadeira de troca de presentes. Este aplicativo permite que os participantes se inscrevam, realizem o sorteio e descubram quem é seu amigo secreto de maneira intuitiva e fácil de usar.
+
 </p>
-[![project][PROJECT__BADGE]][PROJECT__URL]
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/ericpetterson/" target="blank"><img align="center" src="https://img.shields.io/badge/Link_para_testar-green?style=for-the-badge" alt="https://www.linkedin.com/in/ericpetterson/" height="30"  /></a>
+</p>
+
 
 <h3>Funcionalidades:</h3>
 
